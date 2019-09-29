@@ -7,9 +7,6 @@ const fCardDescription       = document.getElementById("f-card-description");
 const fCardImage             = document.getElementById("f-card-image");
 const renderButton           = document.getElementById("render-button");
 
-const cardBgClass           = document.getElementById("card-background-class");
-const cardBgRace            = document.getElementById("card-background-race");
-const cardBgSymbol          = document.getElementById("card-background-symbol");
 const cardTitle             = document.getElementById("card-title");
 const cardSubTitle          = document.getElementById("card-subtitle");
 const cardPseudoDescription = document.getElementById("card-p-desc");
@@ -26,6 +23,10 @@ const CardType = {
     CLASS: "class",
     RACE: "race",
     SYMBOL: "symbol",
+    MONSTER: "monster",
+    SPECIAL: "special",
+    TRAP: "trap",
+    TREASURE: "treasure"
 };
 
 let currentImage = null;
@@ -59,23 +60,30 @@ fCardImage.onchange = function(ev) {
 };
 
 fCardType.onchange = function(ev) {
+    const prefix = "card-background";
     let selectedOption = this.options[this.selectedIndex].value;
 
-    [cardBgClass, cardBgRace, cardBgSymbol].forEach(function(item) {
-        item.style.display = "none";
-    });
+    for (suffixIndex in CardType)  {
+        let suffix = CardType[suffixIndex];
 
-    if (selectedOption === CardType.CLASS) {
-        currentImage = cardBgClass;
-        cardType.innerText = "Класс";
-    } else if (selectedOption === CardType.RACE) {
-        currentImage = cardBgRace;
-        cardType.innerText = "Раса";
-    } else if (selectedOption === CardType.SYMBOL) {
-        currentImage = cardBgSymbol;
-        cardType.innerText = "Символ";
+        document.getElementById(prefix + "-" + suffix).style.display = "none";
     }
 
+    let getRuName = function() {
+        switch (selectedOption) {
+            case CardType.CLASS:    return "Класс";
+            case CardType.RACE:     return "Раса";
+            case CardType.SYMBOL:   return "Символ";
+            case CardType.MONSTER:  return "Монстр";
+            case CardType.SPECIAL:  return "Спешл";
+            case CardType.TRAP:     return "Ловушка";
+            case CardType.TREASURE: return "Сокровище";
+        }
+    };
+
+    cardType.innerText = getRuName();
+
+    currentImage = document.getElementById(prefix + "-" + selectedOption);
     currentImage.style.display = "block";
 };
 
