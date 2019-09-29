@@ -1,0 +1,191 @@
+* {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+.card-preview-container {
+    width: 70%;
+    height: 100vh;
+    background: #1b1b20;
+    display: table;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#rendered-container {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: table;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: 0.4s top ease-out;
+}
+
+.card-preview-sub-container, .rendered-sub-container {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+#rendred-image {
+    display: inline-block;
+}
+
+#rendered-image-canvas {
+    display: none;
+}
+
+#card-preview {
+    width: 300px;
+    height: 514px;
+    margin: 0 auto;
+    box-shadow: 0 0 60px black;
+    border-radius: 14px;
+    position: relative;
+    overflow: hidden;
+}
+
+#card-preview.pre-render-state {
+    background-image: none;
+    border-radius: 0px;
+    box-shadow: none;
+}
+
+#card-preview.type-class {
+    filter: hue-rotate(0deg);
+}
+
+#card-preview.type-race {
+    filter: hue-rotate(197deg);
+}
+
+#card-preview.type-symbol {
+    filter: hue-rotate(286deg);
+}
+
+#card-preview * {
+    position: absolute;
+    font-family: 'Pacifico', cursive;
+    color: white;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+}
+
+#card-title {
+    top: 8px;
+    font-size: 36px;
+    width: 100%;
+    text-align: center;
+}
+
+#card-subtitle {
+    top: 54px;
+    font-size: 18px;
+    width: 100%;
+    text-align: center;
+}
+
+#card-p-desc {
+    top: 94px;
+    left: 16px;
+    width: 200px;
+    text-align: left;
+    line-height: 24px;
+    font-size: 16px;
+}
+
+#card-image {
+    top: 0;
+    left: 0;
+}
+
+#card-image-mask {
+    top: 0;
+    left: 0;
+    z-index: 1;
+    cursor: move;
+}
+
+#card-desc {
+    bottom: 48px;
+    width: 100%;
+    text-align: center;
+    line-height: 24px;
+    padding: 0 16px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+#card-type {
+    font-size: 24px;
+    bottom: 8px;
+    right: 16px;
+}
+
+
+.card-description-container {
+    width: 30%;
+    height: 100vh;
+    float: right;
+    background: #3c3b4a;
+}
+
+.card-description-item {
+    padding: 16px 16px 0 16px;
+    font-size: 16px;
+}
+
+.card-description-item .title {
+    color: white;
+    padding-bottom: 8px;
+}
+
+.card-description-item select, 
+.card-description-item input[type="text"],
+.card-description-item textarea {
+    width: 100%;
+    font-size: 16px;
+    box-sizing: border-box;
+    padding: 8px;
+    border: none;
+    border-radius: 2px;
+    resize: none;
+    background-color: #e0e0e0;
+    transition: 0.2s background-color ease-out;
+}
+
+.card-description-item select:hover, 
+.card-description-item select:focus, 
+.card-description-item input[type="text"]:hover,
+.card-description-item input[type="text"]:focus,
+.card-description-item textarea:hover,
+.card-description-item textarea:focus {
+    background-color: white;
+}
+
+.card-description-item input[type="file"] {
+    color: white;
+}
+
+#render-button {
+    padding: 8px;
+    font-size: 16px;
+    background-color: #6d6dd2;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    transition: 0.2s background-color ease-out;
+    cursor: pointer;
+    float: right;
+    width: 100%;
+}
+
+#render-button:hover {
+    background-color: #8b8be7;
+}

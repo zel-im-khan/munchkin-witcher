@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet"> 
+        <link href="index.css" type="text/css" rel="stylesheet">
+        <title>TableTop card generator</title>
+    </head>
+    <body>
+        <div class="card-preview-container">
+            <div class="card-preview-sub-container">
+                <div id="card-preview">
+                    <img id="card-background-class" src="backgrounds/card-bg.png">
+                    <img id="card-background-race" src="backgrounds/card-bg.png">
+                    <img id="card-background-symbol" src="backgrounds/card-bg.png">
+                    <div id="card-title"></div>
+                    <div id="card-subtitle"></div>
+                    <div id="card-p-desc"></div>
+                    <div id="card-image-mask" style="top: 0px; left: 0px;"></div>
+                    <img id="card-image">
+                    <div id="card-desc"></div>
+                    <div id="card-type"></div>
+                </div>
+            </div>
+        </div>
+        <div class="card-description-container">
+            <div class="card-description-item">
+                <div class="title">
+                    Card type
+                </div>
+                <select id="f-card-type">
+                    <option value="class">Class</option>
+                    <option value="race">Race</option>
+                    <option value="symbol">Symbol</option>
+                </select>
+            </div>
+            <div class="card-description-item">
+                <div class="title">
+                    Card title
+                </div>
+                <input id="f-card-title" type="text">
+            </div>
+            <div class="card-description-item">
+                <div class="title">
+                    Card subtitle
+                </div>
+                <input id="f-card-subtitle" type="text">
+            </div>
+            <div class="card-description-item">
+                <div class="title">
+                    Card pseudo-description
+                </div>
+                <textarea id="f-card-p-description"></textarea>
+            </div>
+            <div class="card-description-item">
+                <div class="title">
+                    Card description
+                </div>
+                <textarea id="f-card-description"></textarea>
+            </div>
+            <div class="card-description-item">
+                <div class="title">
+                    Card image
+                </div>
+                <input id="f-card-image" type="file" accept=".png">
+            </div>
+            <div class="card-description-item">
+                <button id="render-button">Render</button>
+            </div>
+        </div>
+        <div id="rendered-container" style="top: -100vw">
+            <div class="rendered-sub-container">
+                <canvas width="300" height="514" id="rendered-image-canvas"></canvas>
+                <img id="rendered-image">
+            </div>
+        </div>
+    </body>
+    <script src="index.js"></script>
+</html>
